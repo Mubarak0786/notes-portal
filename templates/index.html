@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes Portal</title>
+</head>
+<body>
+<h2>Upload Note</h2>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input name="title" placeholder="Title">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+
+<h2>Enroll Student</h2>
+<form method="POST" action="/enroll">
+    <input name="name" placeholder="Name">
+    <input name="email" placeholder="Email">
+    <button type="submit">Enroll</button>
+</form>
+
+<h2>Notes</h2>
+<ul>
+{% for n in notes %}
+<li>{{ n.title }} - <a href="/download/{{n.id}}">Download</a> | <a href="/delete/{{n.id}}">Delete</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>
